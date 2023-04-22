@@ -1,2 +1,2 @@
 /*Default Config*/
-@theme "dmenu.rasi"
+@theme "themes/appmenu.rasi"
