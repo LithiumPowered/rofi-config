@@ -81,7 +81,8 @@ configuration {
   width:                          10em;
   padding:                        0.6em 0.4em;
 
-  placeholder:                    "";
+  placeholder:                    "Type to filter...";
+  cursor: pointer;
   placeholder-color:              #414141;
 
   background-color:               #000000;
