@@ -1,2 +1,19 @@
 /*Default Config*/
+
+configuration {
+  font:                         "Terminus 9";
+  expand:                       false;
+  show-icons:                   false;
+
+  display-drun:                 "$";
+  display-run:                  "!";
+  display-window:               "#";
+  display-ssh:                  "@";
+
+  disable-history:              false;
+  sidebar-mode:                 true;
+  levenshtein-sort:             true;
+}
 @theme "themes/appmenu.rasi"
+
+/* vim: ft=sass

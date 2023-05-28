@@ -14,34 +14,21 @@
   vertical-align: 0.5;
 }
 
-configuration {
-  font:                         "Terminus 9";
-  expand:                       false;
-  show-icons:                   false;
-
-  display-drun:                 "$";
-  display-run:                  "!";
-  display-window:               "#";
-  display-ssh:                  "@";
-
-  disable-history:              false;
-  sidebar-mode:                 true;
-  levenshtein-sort:             true;
-}
-
 #window {
-  location:                       southwest;
-  anchor:                         southwest;
-  width:                          25%;
+  location:                       northwest;
+  anchor:                         northwest;
+  width:                          17%;
   padding:                        0px;
 
-  border:                         1px;
+  y-offset: 28px;
+
+  border:                         0px 1px 1px 1px;
   border-color:                   #414141;
 }
 
 #mainbox {
   background-color:               #181818;
-  children:                       [listview, inputbar];
+  children:                       [inputbar, listview];
 }
 
 #message {
@@ -52,11 +39,11 @@ configuration {
 #listview {
   padding:                        0;
   background-color:               #000000;
-  columns:                        2;
-  lines:                          9;
+  columns:                        1;
+  lines:                          10;
 
   border:                         1 0 1 0;
-  border-color:                   #181818;
+  border-color:                   #2a2a2a;
 }
 
 #element {
@@ -65,7 +52,7 @@ configuration {
 }
 
 #element.selected {
-  background-color:               #181818;
+  background-color:               #202020;
   text-color:                     #FFFFFF;
 }
 
@@ -86,7 +73,7 @@ configuration {
   placeholder-color:              #414141;
 
   background-color:               #000000;
-  text-color:                     #FFFFFF;
+  text-color:                     #dfdfdf;
 }
 
 inputbar {
@@ -96,17 +83,16 @@ inputbar {
 #prompt {
   enabled:                        true;
   padding:                        0.6em 0.9em;
-  background-color:               #181818;
-  text-color:                     #FFFFFF;
+  background-color:               #000000;
+  text-color:                     #dfdfdf;
 
   border: 0 1 0 1;
-  border-color: #181818;
+  border-color: #2a2a2a;
 }
 
 element-text {
   background-color:               inherit;
   text-color:                     inherit;
 }
-
 
 /* vim: ft=sass
