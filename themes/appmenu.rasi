@@ -1,39 +1,67 @@
 @theme "/dev/null"
 
-* {
-  /* SETTINGS */
-  highlight:                    bold;
-  scrollbar:                    false;
+/*****----- Configuration -----*****/
+configuration {
+	modi:                       "drun,run,filebrowser,window";
+  show-icons:                 false;
+  display-drun:               "APPS";
+  display-run:                "RUN";
+  display-filebrowser:        "FILES";
+  display-window:             "WINDOW";
+	drun-display-format:        "{name}";
+	window-format:              "{w} · {c} · {t}";
+}
 
-  background-color:             #000000;
-  border:                       0;
-  margin:                       0;
-  padding:                      0;
-  spacing:                      0;
+/*****----- Global Properties -----*****/
+* {
+  font: "Terminus 9";
+  background: #000000;
+  background-alt: #202124;
+  foreground: #dfdfdf;
+  foreground-alt: #000000;
+  placeholder: #414141;
+  selected: #202020;
+  active: #dfdfdf;
+  active-alt: #ffffff;
+  urgent: #808080;
+  border: #414141;
+
+  background-color: #000000;
+  margin: 0;
+  padding: 0;
+  spacing: 0;
 
   vertical-align: 0.5;
+  highlight: bold;
+  scrollbar: false;
 }
 
-#window {
-  location:                       northwest;
-  anchor:                         northwest;
-  width:                          17%;
-  padding:                        0px;
-
+/*****----- Main Window -----*****/
+window {
+  /* properties for window widget */
+  transparency: "real";
+  location: northwest;
+  anchor: northwest;
+  fullscreen: false;
+  width: 500px;
+  x-offset: 0px;
   y-offset: 28px;
 
-  border:                         0px 1px 1px 0px;
-  border-color:                   #414141;
+  /* properties for all widgets */
+  enabled: true;
+  border-radius: 0px;
+  cursor: "default";
+  background-color: @background;
 }
 
-#mainbox {
-  background-color:               #181818;
-  children:                       [inputbar, listview];
-}
+/*****----- Main Box -----*****/
+mainbox {
+  enabled: true;
+  spacing: 0px;
 
-#message {
-  border: 1px dash 0px 0px;
-  padding: 1px;
+  background-color: transparent;
+  orientation: vertical;
+  children: [inputbar, listview];
 }
 
 #listview {
@@ -46,38 +74,24 @@
   border-color:                   #2a2a2a;
 }
 
-#element {
-  padding:                        0.6em 1.0em;
-  text-color:                     #A1A1A1;
-}
-
-#element.selected {
-  background-color:               #202020;
-  text-color:                     #FFFFFF;
-}
-
-#element-icon {
-  size:                           0;
-}
-
-#case-indicator {
-    spacing:    0;
-}
-
-#entry {
-  width:                          10em;
-  padding:                        0.6em 0.4em;
-
-  placeholder:                    "Type to filter...";
-  cursor: pointer;
-  placeholder-color:              #414141;
-
-  background-color:               #000000;
-  text-color:                     #dfdfdf;
-}
-
+/*****----- Inputbar -----*****/
 inputbar {
   children:                       [prompt, entry];
+}
+textbox-prompt-colon {
+  enabled: true;
+  expand: false;
+  str: "";
+  background-color: inherit;
+  text-color: @foreground;
+}
+entry {
+  enabled: true;
+  background-color: inherit;
+  text-color: @foreground;
+  cursor: text;
+  placeholder: "  Search";
+  placeholder-color: @placeholder;
 }
 
 #prompt {
@@ -90,9 +104,83 @@ inputbar {
   border-color: #2a2a2a;
 }
 
+/*****----- Elements -----*****/
+element {
+  enabled: true;
+  spacing: 15px;
+  padding: 8px;
+  border-radius: 0px;
+  background-color: transparent;
+  text-color: @foreground;
+  cursor: pointer;
+}
+element normal.normal {
+  background-color: inherit;
+  text-color: @foreground;
+}
+element normal.urgent {
+  background-color: @urgent;
+  text-color: @foreground;
+}
+element normal.active {
+  background-color: @active;
+  text-color: @foreground-alt;
+}
+element alternate.normal {
+  background-color: inherit;
+  text-color: @foreground;
+}
+element alternate.urgent {
+  background-color: @urgent;
+  text-color: @foreground;
+}
+element alternate.active {
+  background-color: @active;
+  text-color: @foreground-alt;
+}
+element selected.normal {
+  background-color: @selected;
+  text-color: @active;
+}
+element selected.urgent {
+  background-color: @urgent;
+  text-color: @foreground;
+}
+element selected.active {
+  background-color: @active-alt;
+  text-color: @foreground-alt;
+}
+element-icon {
+  background-color: transparent;
+  text-color: inherit;
+  size: 32px;
+  cursor: inherit;
+}
 element-text {
-  background-color:               inherit;
-  text-color:                     inherit;
+  background-color: transparent;
+  text-color: inherit;
+  cursor: inherit;
+  vertical-align: 0.5;
+  horizontal-align: 0;
+}
+
+/*****----- Message -----*****/
+message {
+  background-color:            transparent;
+}
+textbox {
+  padding:                     10px;
+  border-radius:               0px;
+  background-color:            @background-alt;
+  text-color:                  @foreground;
+  vertical-align:              0.5;
+  horizontal-align:            0.0;
+}
+error-message {
+  padding:                    10px;
+  border-radius:              0px;
+  background-color:           @background;
+  text-color:                 @foreground;
 }
 
 /* vim: ft=sass
