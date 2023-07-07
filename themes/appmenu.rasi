@@ -3,18 +3,18 @@
 /*****----- Configuration -----*****/
 configuration {
 	modi:                       "drun,run,filebrowser,window";
-  show-icons:                 false;
-  display-drun:               "APPS";
-  display-run:                "RUN";
-  display-filebrowser:        "FILES";
-  display-window:             "WINDOW";
+  show-icons:                 true;
+  display-drun:               "$";
+  display-run:                "!";
+  display-filebrowser:        ":";
+  display-window:             "@";
 	drun-display-format:        "{name}";
 	window-format:              "{w} · {c} · {t}";
 }
 
 /*****----- Global Properties -----*****/
 * {
-  font: "Terminus 9";
+  font: "Terminus 8";
   background: #000000;
   background-alt: #202124;
   foreground: #dfdfdf;
@@ -59,29 +59,46 @@ mainbox {
   enabled: true;
   spacing: 0px;
 
+  border: 1;
+  border-color: @border;
+
   background-color: transparent;
-  orientation: vertical;
-  children: [inputbar, listview];
+  orientation: horizontal;
+  children: ["imagebox", "listbox"];
 }
 
-#listview {
-  padding:                        0;
-  background-color:               #000000;
-  columns:                        1;
-  lines:                          10;
+imagebox {
+  padding: 10px;
+  background: transparent;
+  background-image: url("~/.config/rofi/images/f.png", height);
+  orientation: vertical;
+  children: ["inputbar", "dummy", "mode-switcher"];
+}
 
-  border:                         1 0 1 0;
-  border-color:                   #2a2a2a;
+listbox {
+  spacing: 20px;
+  padding: 10px;
+  background-color: transparent;
+  orientation: vertical;
+  children: ["message", "listview"];
+}
+
+dummy {
+  background-color: transparent;
 }
 
 /*****----- Inputbar -----*****/
 inputbar {
-  children:                       [prompt, entry];
+  border-radius: 4px;
+  padding: 10px;
+  border: 1px;
+  border-color: @foreground-alt;
+  children:                       ["textbox-prompt-colon", "entry"];
 }
 textbox-prompt-colon {
   enabled: true;
   expand: false;
-  str: "";
+  str: "󰩉 ";
   background-color: inherit;
   text-color: @foreground;
 }
@@ -90,26 +107,54 @@ entry {
   background-color: inherit;
   text-color: @foreground;
   cursor: text;
-  placeholder: "  Search";
+  placeholder: " Search";
   placeholder-color: @placeholder;
 }
 
-#prompt {
-  enabled:                        true;
-  padding:                        0.6em 0.9em;
-  background-color:               #000000;
-  text-color:                     #dfdfdf;
+/*****----- Mode Switcher -----*****/
+mode-switcher{
+  enabled:                     true;
+  spacing:                     20px;
+  background-color:            transparent;
+  text-color:                  @foreground;
+}
+button {
+  padding:                     15px;
+  border-radius:               4px;
+  background-color:            @background-alt;
+  text-color:                  inherit;
+  cursor:                      pointer;
+}
+button selected {
+  background-color:            @selected;
+  text-color:                  @foreground;
+}
 
-  border: 0 1 0 1;
-  border-color: #2a2a2a;
+/*****----- Listview -----*****/
+listview {
+  enabled:                     true;
+  columns:                     1;
+  lines:                       8;
+  cycle:                       true;
+  dynamic:                     true;
+  scrollbar:                   false;
+  layout:                      vertical;
+  reverse:                     false;
+  fixed-height:                true;
+  fixed-columns:               true;
+
+  spacing:                     10px;
+  background-color:            transparent;
+  text-color:                  @foreground;
+  cursor:                      "default";
 }
 
 /*****----- Elements -----*****/
 element {
   enabled: true;
   spacing: 15px;
-  padding: 8px;
-  border-radius: 0px;
+  padding: 10px;
+  border-radius: 4px;
   background-color: transparent;
   text-color: @foreground;
   cursor: pointer;
@@ -153,7 +198,7 @@ element selected.active {
 element-icon {
   background-color: transparent;
   text-color: inherit;
-  size: 32px;
+  size: 16px;
   cursor: inherit;
 }
 element-text {
@@ -170,7 +215,7 @@ message {
 }
 textbox {
   padding:                     10px;
-  border-radius:               0px;
+  border-radius:               10px;
   background-color:            @background-alt;
   text-color:                  @foreground;
   vertical-align:              0.5;
@@ -178,7 +223,7 @@ textbox {
 }
 error-message {
   padding:                    10px;
-  border-radius:              0px;
+  border-radius:              10px;
   background-color:           @background;
   text-color:                 @foreground;
 }
