@@ -16,14 +16,14 @@ configuration {
 * {
   font: "Terminus 8";
   background: #000000;
-  background-alt: #000000;
+  background-alt: #141414;
   foreground: #dfdfdf;
   foreground-alt: #000000;
   placeholder: #414141;
   selected: #202124;
   active: #dfdfdf;
   active-alt: #ffffff;
-  urgent: #808080;
+  urgent: #FE0000;
   accent: #1f2535;
   border: #414141;
 
@@ -48,6 +48,8 @@ window {
   height: 400px;
   x-offset: 0px;
   y-offset: 0px;
+  border: 1;
+  border-color: @border;
 
   /* properties for all widgets */
   enabled: true;
@@ -60,9 +62,6 @@ window {
 mainbox {
   enabled: true;
   spacing: 0px;
-
-  border: 1;
-  border-color: @border;
 
   background-color: transparent;
   orientation: horizontal;
@@ -220,17 +219,17 @@ message {
   background-color:            transparent;
 }
 textbox {
-  padding:                     10px;
-  border-radius:               10px;
-  background-color:            @background-alt;
+  padding:                     50px;
+  border-radius:               0px;
+  background-color:            @background;
   text-color:                  @foreground;
   vertical-align:              0.5;
   horizontal-align:            0.0;
 }
 error-message {
-  padding:                    10px;
-  border-radius:              10px;
-  background-color:           @background;
+  padding:                    1px;
+  border-radius:              0px;
+  background-color:           @urgent;
   text-color:                 @foreground;
 }
 
