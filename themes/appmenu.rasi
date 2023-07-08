@@ -24,6 +24,7 @@ configuration {
   active: #dfdfdf;
   active-alt: #ffffff;
   urgent: #808080;
+  accent: #1f2535;
   border: #414141;
 
   background-color: #000000;
@@ -40,12 +41,12 @@ configuration {
 window {
   /* properties for window widget */
   transparency: "real";
-  location: northwest;
-  anchor: northwest;
+  location: center;
+  anchor: center;
   fullscreen: false;
   width: 500px;
   x-offset: 0px;
-  y-offset: 30px;
+  y-offset: 0px;
 
   /* properties for all widgets */
   enabled: true;
@@ -72,6 +73,8 @@ imagebox {
   background: transparent;
   background-image: url("~/.config/rofi/images/fall.jpg", width);
   orientation: vertical;
+  border: 0 2 0 0;
+  border-color: @accent;
   children: ["inputbar", "dummy", "mode-switcher"];
 }
 
@@ -91,8 +94,8 @@ dummy {
 inputbar {
   border-radius: 4px;
   padding: 10px;
-  border: 1px;
-  border-color: @foreground-alt;
+  border: 2px;
+  border-color: @accent;
   children:                       ["textbox-prompt-colon", "entry"];
 }
 textbox-prompt-colon {
@@ -114,19 +117,21 @@ entry {
 /*****----- Mode Switcher -----*****/
 mode-switcher{
   enabled:                     true;
-  spacing:                     20px;
+  spacing:                     15px;
   background-color:            transparent;
   text-color:                  @foreground;
 }
 button {
-  padding:                     15px;
+  padding:                     14px;
   border-radius:               4px;
   background-color:            @background-alt;
   text-color:                  inherit;
+  border: 2px;
+  border-color: @accent;
   cursor:                      pointer;
 }
 button selected {
-  background-color:            @selected;
+  background-color:            @accent;
   text-color:                  @foreground;
 }
 
@@ -143,7 +148,7 @@ listview {
   fixed-height:                true;
   fixed-columns:               true;
 
-  spacing:                     10px;
+  spacing:                     12px;
   background-color:            transparent;
   text-color:                  @foreground;
   cursor:                      "default";
