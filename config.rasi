@@ -76,7 +76,7 @@ configuration {
 	display-filebrowser: "Files";
 
 	/*---------- Misc setting ----------*/
-	terminal: "rofi-sensible-terminal";
+	terminal: "kitty --class=i3_float_term -1 --instance-group=i3_term_group";
 	font: "Mono 12";
 	sort: false;
 	threads: 0;
