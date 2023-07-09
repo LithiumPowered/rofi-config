@@ -24,7 +24,7 @@ configuration {
   active: #dfdfdf;
   active-alt: #ffffff;
   urgent: #FE0000;
-  accent: #1f2535;
+  accent: #202124;
   border: #414141;
 
   background-color: #000000;
@@ -71,7 +71,7 @@ mainbox {
 imagebox {
   padding: 10px;
   background: transparent;
-  background-image: url("~/.config/rofi/images/fall.jpg", width);
+  background-image: url("~/.config/rofi/images/ctrl+vers.jpg", height);
   orientation: vertical;
   border: 0 2 0 0;
   border-color: @accent;
