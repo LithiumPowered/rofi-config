@@ -71,7 +71,7 @@ mainbox {
 imagebox {
   padding: 10px;
   background: transparent;
-  background-image: url("~/.config/rofi/images/ctrl+vers.jpg", height);
+  background-image: url("~/.config/rofi/images/h.jpg", width);
   orientation: vertical;
   border: 0 2 0 0;
   border-color: @accent;
