@@ -9,12 +9,12 @@ configuration {
   display-filebrowser:        ":";
   display-window:             "@";
 	drun-display-format:        "{name}";
-	window-format:              "{w} · {c} · {t}";
+	window-format:              "{w} · {t}";
 }
 
 /*****----- Global Properties -----*****/
 * {
-  font: "Terminus 8";
+  font: "Terminus 9";
   background: #000000;
   background-alt: #141414;
   foreground: #dfdfdf;
@@ -41,13 +41,13 @@ configuration {
 window {
   /* properties for window widget */
   transparency: "real";
-  location: center;
-  anchor: center;
+  location: southwest;
+  anchor: southwest;
   fullscreen: false;
-  width: 500px;
-  height: 400px;
-  x-offset: 0px;
-  y-offset: 0px;
+  width: 300px;
+  /*height: 425px;*/ 
+  x-offset: 4px;
+  y-offset: -4px;
   border: 1;
   border-color: @border;
 
@@ -64,23 +64,23 @@ mainbox {
   spacing: 0px;
 
   background-color: transparent;
-  orientation: horizontal;
-  children: ["imagebox", "listbox"];
+  orientation: vertical;
+  children: [ "mode-switcher", "listbox", "inputbar"];
 }
 
 imagebox {
-  padding: 10px;
+  padding: 0px;
   background: transparent;
-  background-image: url("~/.config/rofi/images/h.jpg", width);
+  background-image: url("~/.config/rofi/images/e.jpg", width);
   orientation: vertical;
-  border: 0 2 0 0;
+  border: 0 0 0 0;
   border-color: @accent;
-  children: ["inputbar", "dummy", "mode-switcher"];
+  children: ["dummy"];
 }
 
 listbox {
   spacing: 20px;
-  padding: 10px;
+  padding: 0px;
   background-color: transparent;
   orientation: vertical;
   children: ["message", "listview"];
@@ -92,16 +92,18 @@ dummy {
 
 /*****----- Inputbar -----*****/
 inputbar {
-  border-radius: 4px;
+  border-radius: 0px;
   padding: 10px;
-  border: 2px;
+  border: 1 0 1 0;
   border-color: @accent;
   children:                       ["textbox-prompt-colon", "entry"];
 }
 textbox-prompt-colon {
-  enabled: false;
+  font: "Terminus 14";
+  padding: 0 5 0 0;
+  enabled: true;
   expand: false;
-  str: "󰩉 ";
+  str: " ";
   background-color: inherit;
   text-color: @foreground;
 }
@@ -110,23 +112,23 @@ entry {
   background-color: inherit;
   text-color: @foreground;
   cursor: text;
-  placeholder: " Search";
+  placeholder: "Type to search...";
   placeholder-color: @placeholder;
 }
 
 /*****----- Mode Switcher -----*****/
 mode-switcher{
   enabled:                     true;
-  spacing:                     15px;
+  spacing:                     0px;
   background-color:            transparent;
   text-color:                  @foreground;
 }
 button {
-  padding:                     14px;
-  border-radius:               4px;
+  padding:                     10px;
+  border-radius:               0px;
   background-color:            @background-alt;
   text-color:                  inherit;
-  border: 2px;
+  border: 1px;
   border-color: @accent;
   cursor:                      pointer;
 }
@@ -139,7 +141,7 @@ button selected {
 listview {
   enabled:                     true;
   columns:                     1;
-  lines:                       8;
+  lines:                       10;
   cycle:                       true;
   dynamic:                     true;
   scrollbar:                   false;
@@ -148,7 +150,7 @@ listview {
   fixed-height:                true;
   fixed-columns:               true;
 
-  spacing:                     12px;
+  spacing:                     0px;
   background-color:            transparent;
   text-color:                  @foreground;
   cursor:                      "default";
@@ -157,9 +159,9 @@ listview {
 /*****----- Elements -----*****/
 element {
   enabled: true;
-  spacing: 15px;
-  padding: 10px;
-  border-radius: 4px;
+  spacing: 10px;
+  padding: 8px;
+  border-radius: 0px;
   background-color: transparent;
   text-color: @foreground;
   cursor: pointer;

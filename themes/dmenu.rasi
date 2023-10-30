@@ -33,22 +33,17 @@ window {
   location:                       north;
   anchor:                         north;
   width:                          100%;
-  height:                         28px;
-  padding:                        0px;
-  border:                         0px;
+  height:                         30px;
 }
 
 element {
-  padding:                        7 15;
+  padding:                        8.5 10;
   text-color:                     #A1A1A1;
 }
 
 element selected {
   background-color:               #181818;
   text-color:                     #FFFFFF;
-
-  border: 0 1 0 1;
-  border-color: #000000;
 }
 
 element-text {
@@ -65,7 +60,7 @@ entry {
   padding:                        0.6em 0.4em;
   height:                         28px;
 
-  placeholder:                    "";
+  placeholder:                    " Type to search... ";
   placeholder-color:              #414141;
 
   background-color:               #000000;
@@ -93,12 +88,9 @@ mainbox {
 prompt {
   enabled:                        true;
   padding:                        0.6em 0.9em;
-  height:                         28px;
   background-color:               #181818;
-  text-color:                     #FFFFFF;
+  text-color:                     #414141;
 
-  border: 0 1 0 1;
-  border-color: #181818;
 }
 
 /* vim: ft=sass
